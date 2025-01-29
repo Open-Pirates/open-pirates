@@ -189,7 +189,7 @@ class GuildDB(DBInterface):
             self.reconnect()
             return self.memberCount(guildId)
 
-        print("Guild DB failed member Count for ", guildId)
+        print(("Guild DB failed member Count for ", guildId))
         return 9999
 
     def verifyGuild(self, guildId):

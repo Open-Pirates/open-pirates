@@ -1,4 +1,4 @@
-import dbm
+import dbm.ndbm
 import dbm.dumb
 import json
 import sys
@@ -25,9 +25,9 @@ class AccountDB:
         # Setup the dbm:
         accountDbFile = config.GetString('accountdb-local-file', 'dependencies/astron/databases/accounts.db')
         if sys.platform != 'darwin':
-            self.dbm = dbm.open(accountDbFile, 'c')
+            self.dbm = dbm.ndbm.open(accountDbFile, 'c')
         else:
-            self.dbm = dbm.dumb.open(accountDbFile, 'c')
+            self.dbm = dbm.ndbm.dumb.open(accountDbFile, 'c')
 
     def lookup(self, playToken, callback):
         raise NotImplementedError('lookup')  # Must be overridden by subclass.
