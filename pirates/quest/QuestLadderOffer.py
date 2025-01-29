@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD, makeTuple
+from otp.otpbase.PythonUtil import POD, makeTuple
 from pirates.quest import QuestReward, QuestLadderDB
 
 class QuestLadderOffer(POD):
@@ -21,7 +21,7 @@ class QuestLadderOffer(POD):
 
     def setRewards(self, rewards):
         rewardStructs = []
-        for reward in makeTuple(rewards):
+        for reward in tuple(rewards):
             rewardStructs.append(reward.getQuestRewardStruct())
 
         self.setRewardStructs(rewardStructs)

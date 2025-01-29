@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import reduceAngle, pivotScalar, rad90, rad270
+from direct.showbase.PythonUtil import rad90, rad270
 import math
 
 class ShipRockerOffState():

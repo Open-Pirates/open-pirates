@@ -1,5 +1,5 @@
 from direct.directnotify.DirectNotifyGlobal import directNotify
-from direct.showbase.PythonUtil import POD, invertDict, makeTuple
+from otp.otpbase.PythonUtil import POD, invertDict, makeTuple
 from pirates.quest import QuestEvent, QuestTaskState
 from pirates.piratesbase import PLocalizer
 from pirates.pirate import AvatarTypes
@@ -231,7 +231,7 @@ class VisitTaskDNA(QuestTaskDNA):
         return random.choice(PLocalizer.VisitTaskDefaultDialogAfter)
 
     def getReturnGiverIds(self):
-        return makeTuple(self.npcId)
+        return tuple(self.npcId)
 
     def getTargetInfo(self, world):
         targetInfo = world.uid2doSearch(self.npcId)
@@ -1033,7 +1033,7 @@ class BribeNPCTaskDNA(QuestTaskDNA):
         return random.choice(PLocalizer.BribeTaskDefaultDialogAfter)
 
     def getReturnGiverIds(self):
-        return makeTuple(self.npcId)
+        return tuple(self.npcId)
 
     def getTargetInfo(self, world):
         targetInfo = world.uid2doSearch(self.npcId)
@@ -2139,7 +2139,7 @@ class ViewCutsceneTaskDNA(QuestTaskDNA):
         return random.choice(PLocalizer.QuestDefaultDialogBefore)
 
     def getReturnGiverIds(self):
-        return makeTuple(self.npcId)
+        return tuple(self.npcId)
 
     def getTargetInfo(self, world):
         targetInfo = world.uid2doSearch(self.npcId)

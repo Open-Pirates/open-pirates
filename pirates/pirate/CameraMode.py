@@ -1,11 +1,13 @@
 from pandac.PandaModules import *
 from direct.showbase import DirectObject
-from direct.showbase.PythonUtil import Enum
+from enum import Enum
 from direct.fsm.FSM import FSM
 from otp.otpbase import OTPGlobals
 
-class CameraMode(DirectObject.DirectObject, FSM):
-    Modes = Enum('NORMAL, BATTLE')
+class CameraMode(FSM):
+    class Modes(Enum):
+        NORMAL = 1
+        BATTLE = 2
 
     def __init__(self):
         FSM.__init__(self, 'CameraMode')

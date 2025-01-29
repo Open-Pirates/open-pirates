@@ -45,12 +45,16 @@ from otp.uberdog import OtpAvatarManager
 from otp.distributed import OtpDoGlobals
 from otp.ai.GarbageLeakServerEventAggregator import GarbageLeakServerEventAggregator
 from .PotentialAvatar import PotentialAvatar
-
+from enum import Enum
 class OTPClientRepository(ClientRepositoryBase):
     notify = directNotify.newCategory('OTPClientRepository')
     avatarLimit = 6
-    WishNameResult = Enum(['Failure', 'PendingApproval', 'Approved', 'Rejected'])
-
+    class WishNameResult(Enum):
+        Failure = 0
+        PendingApproval = 1
+        Approved = 2
+        Rejected = 3
+        
     def __init__(self, serverVersion, launcher=None, playGame=None):
         ClientRepositoryBase.__init__(self)
         self.handler = None

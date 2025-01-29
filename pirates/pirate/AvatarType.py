@@ -91,6 +91,9 @@ class AvatarType():
 
     def isA(self, other):
         return other._contains(self)
+    
+    def __lt__(self, other):
+        return self.__cmp__(other) < 0
 
     def _contains(self, other):
         if self.id != AvatarType.Unspecified:

@@ -2,6 +2,7 @@ import sys
 import os
 import tokenize
 import copy
+import string
 from direct.showbase.ShowBaseGlobal import *
 from direct.interval.IntervalGlobal import *
 from pandac.PandaModules import *
@@ -47,7 +48,7 @@ def readFile(filename):
     notify.debug('THE PARSED FILE IS %s' % filename)
     lastReadFile = filename
     scriptFile = StreamReader(vfs.openReadFile(filename, 1), 1)
-    gen = tokenize.generate_tokens(scriptFile.readline)
+    gen = tokenize.tokenize(scriptFile.readline)
     line = getLineOfTokens(gen)
     while line is not None:
         if line == []:

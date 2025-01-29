@@ -40,7 +40,7 @@ from pirates.audio.SoundGlobals import loadSfx
 APPROVED = 1
 DENIED = 2
 
-class AvatarChooser(DirectObject, StateData):
+class AvatarChooser(StateData):
     notify = directNotify.newCategory('AvatarChooser')
     notify.setInfo(True)
 

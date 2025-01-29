@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD
+from otp.otpbase.PythonUtil import POD
 from direct.task.Task import Task
 from pirates.piratesbase import PiratesGlobals
 import random

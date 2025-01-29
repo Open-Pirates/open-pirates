@@ -72,7 +72,7 @@ notify-timestamp 1
 # Audio:
 audio-output-rate 44100
 audio-preload-threshold 1024
-audio-library-name p3fmod_audio
+audio-library-name p3openal_audio
 
 # Models:
 model-path ../resources

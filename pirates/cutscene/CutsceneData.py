@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD
+from otp.otpbase.PythonUtil import POD
 from pirates.cutscene.CutsceneActor import *
 from pirates.pirate.AvatarTypes import *
 from pirates.ship import ShipGlobals

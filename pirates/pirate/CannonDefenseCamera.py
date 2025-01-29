@@ -1,6 +1,6 @@
 from pirates.minigame import CannonDefenseGlobals
 from pirates.pirate.CannonCamera import CannonCamera
-from direct.showbase.PythonUtil import ParamObj
+from otp.otpbase.PythonUtil import ParamObj
 
 class CannonDefenseCamera(CannonCamera):
 

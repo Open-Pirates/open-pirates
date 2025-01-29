@@ -6,7 +6,7 @@ from pirates.piratesbase import PiratesGlobals
 from pirates.piratesgui import PiratesGuiGlobals
 from pirates.world import GameTypeGlobals
 
-class DistributedTreasureMap(DistributedObject.DistributedObject, DistributedInventory, QuestHolder):
+class DistributedTreasureMap(DistributedInventory, QuestHolder):
     notify = DirectNotifyGlobal.directNotify.newCategory('TreasureMapManager')
 
     def __init__(self, cr):

@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD, makeTuple
+from otp.otpbase.PythonUtil import POD, makeTuple
 from direct.showbase.DirectObject import DirectObject
 from direct.interval.IntervalGlobal import *
 from direct.gui.DirectGui import *

@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import ParamObj
+from otp.otpbase.PythonUtil import ParamObj
 
 class QuestTaskState(ParamObj):
 

@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD
+from otp.otpbase.PythonUtil import POD
 
 class QuestRewardStruct(POD):
     DataSet = {'rewardType': None,'amount': None,'questId': None}

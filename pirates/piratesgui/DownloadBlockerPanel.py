@@ -3,9 +3,14 @@ from direct.gui.DirectGui import *
 from direct.showbase.PythonUtil import GoldenRectangle
 from pirates.piratesgui import GuiPanel, PiratesGuiGlobals
 from pirates.piratesbase import PLocalizer
-
+from enum import Enum
 class DownloadBlockerPanel(GuiPanel.GuiPanel):
-    Reasons = Enum('GENERIC,ISLAND,BOAT,TELEPORT,LOOKOUT')
+    class Reasons(Enum):
+        GENERIC = 1
+        ISLAND = 2
+        BOAT = 3
+        TELEPORT = 4
+        LOOKOUT = 5
     _Messages = {Reasons.GENERIC: PLocalizer.DownloadBlockerMsgGeneric,Reasons.ISLAND: PLocalizer.DownloadBlockerMsgIsland,Reasons.BOAT: PLocalizer.DownloadBlockerMsgBoat,Reasons.TELEPORT: PLocalizer.DownloadBlockerMsgTeleport,Reasons.LOOKOUT: PLocalizer.DownloadBlockerMsgLookout}
 
     def __init__(self, reason=None):

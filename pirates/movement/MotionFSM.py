@@ -1,6 +1,6 @@
 from direct.fsm.FSM import FSM
 from direct.interval.IntervalGlobal import *
-from direct.showbase.PythonUtil import Enum
+from enum import Enum
 from pirates.piratesbase import PiratesGlobals
 from pirates.pirate import Human
 import random
@@ -23,8 +23,12 @@ IDLE_SPLASH_DELAY = config.GetInt('splash-anims-delay', 60)
 
 class MotionAnimFSM(FSM):
     BLENDAMT = 0.4
-    GROUNDSTATE = Enum('OverSolid, OverWater')
-    ANIMSTATE = Enum('Land, Jump')
+    class GROUNDSTATE(Enum):
+        OverSolid = 0
+        OverWater = 1
+    class ANIMSTATE(Enum):
+        Land = 0
+        Jump = 1
     notify = directNotify.newCategory('MotionAnimFSM')
 
     def __init__(self, av):

@@ -20,7 +20,9 @@ class PWhiteList(WhiteList):
             message = 'pwhitelist.txt file not found on %s' % searchPath
             raise IOError(message)
         data = vfs.readFile(filename, 1)
-        lines = data.split('\n')
+        if isinstance(data, str):
+            data = data.encode('utf-8')
+        lines = data.split(b'\n')
         for token in enumeratePirateNameTokensLower():
             lines.append(token)
 

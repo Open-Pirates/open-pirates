@@ -1,7 +1,7 @@
 from pandac.PandaModules import *
 from direct.gui.OnscreenText import OnscreenText
 from direct.gui.DirectGui import DirectButton
-from direct.showbase.PythonUtil import Enum
+from enum import Enum
 from direct.showutil.Rope import *
 from pirates.piratesgui import PiratesGuiGlobals
 from pirates.piratesbase import PiratesGlobals
@@ -586,6 +586,19 @@ class Dart(PickableModel):
         if self.edgeMode:
             self.edgeModeNode.setPos(*args, **kwargs)
 
+class DecorTypes(Enum):
+    Item = 0
+    Billboard = 1
+    Model = 2
+    BillboardModel = 3
+    BillboardCard = 4
+    Island = 5
+    Text = 6
+    TextIsland = 7
+    Dart = 8
+    Swirl = 9
+    OceanAreaText = 10
+    Ship = 11
+    Spline = 12
 
-DecorTypes = Enum('Item,                    Billboard,                    Model,                    BillboardModel,                    BillboardCard,                    Island,                    Text,                    TextIsland,                    Dart,                    Swirl,                    OceanAreaText,                    Ship,                    Spline,                    ')
 DecorClasses = {DecorTypes.Item: Item,DecorTypes.Billboard: Billboard,DecorTypes.Model: Model,DecorTypes.BillboardModel: BillboardModel,DecorTypes.BillboardCard: BillboardCard,DecorTypes.Island: Island,DecorTypes.Text: Text,DecorTypes.TextIsland: TextIsland,DecorTypes.Dart: Dart,DecorTypes.Swirl: Swirl,DecorTypes.OceanAreaText: OceanAreaText,DecorTypes.Ship: Ship,DecorTypes.Spline: Spline}

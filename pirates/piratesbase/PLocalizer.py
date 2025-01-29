@@ -1,21 +1,19 @@
 from panda3d.core import *
 import string
 import types
-try:
-    language = getConfigExpress().GetString('language', 'english')
-    checkLanguage = getConfigExpress().GetBool('check-language', 1)
-except:
-    language = simbase.config.GetString('language', 'english')
-    checkLanguage = simbase.config.GetBool('check-language', 1)
+
+language = ConfigVariableString('language', 'english').value
+checkLanguage = ConfigVariableBool('check-language', 0).value
 
 def getLanguage():
     return language
 
 print('PLocalizer: Running in language: %s' % language)
-_languageModule = 'pirates.piratesbase.PLocalizer' + string.capitalize(language)
-_questStringModule = 'pirates.piratesbase.PQuestStrings' + string.capitalize(language)
-_greetingStringModule = 'pirates.piratesbase.PGreetingStrings' + string.capitalize(language)
-_dialogStringModule = 'pirates.piratesbase.PDialogStrings' + string.capitalize(language)
+
+_languageModule = 'pirates.piratesbase.PLocalizer' + language.capitalize()
+_questStringModule = 'pirates.piratesbase.PQuestStrings' + language.capitalize()
+_greetingStringModule = 'pirates.piratesbase.PGreetingStrings' + language.capitalize()
+_dialogStringModule = 'pirates.piratesbase.PDialogStrings' + language.capitalize()
 exec('from ' + _languageModule + ' import *')
 exec('from ' + _questStringModule + ' import *')
 exec('from ' + _greetingStringModule + ' import *')

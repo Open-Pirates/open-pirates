@@ -23,7 +23,7 @@ data = vfs.readFile(filename, 1)
 __itemInfo = pickle.loads(data)
 __columnHeadings = __itemInfo.pop('columnHeadings')
 for heading, value in list(__columnHeadings.items()):
-    heading = string.replace(heading, '\r', '')
+    heading = heading.replace('\r', '')
     exec('%s = %s' % (heading, value), globals())
 
 for item in __itemInfo:

@@ -1,25 +1,54 @@
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase.PythonUtil import ParamObj, makeTuple
-from direct.showbase.PythonUtil import getSetter, POD
+from otp.otpbase.PythonUtil import getSetter, POD
 from pirates.piratesbase import PLocalizer
 from pirates.quest.QuestLadder import QuestStub
+from dataclasses import dataclass, field
+from dataclasses import dataclass, field
+from typing import Tuple, Optional
 import random
 
 class CombineOps():
     OR = 0
     AND = 1
 
-
-class QuestDNA(ParamObj):
+@dataclass
+class QuestDNA:
+    prereqs: Tuple = field(default_factory=tuple)
+    tasks: Tuple = field(default_factory=tuple)
+    combineOp: CombineOps = CombineOps.OR
+    returnGiverIds: Optional = None
+    chainedQuests: Tuple = field(default_factory=tuple)
+    questId: Optional = None
+    questInt: int = -1
+    title: str = ''
+    droppable: bool = True
+    rewards: Tuple = field(default_factory=tuple)
+    finalizeInfo: Tuple = field(default_factory=tuple)
+    instanceInfo: Tuple = field(default_factory=tuple)
+    completeRequiresVisit: bool = True
+    playStinger: bool = True
+    displayGoal: bool = True
+    requiresVoyage: bool = False
+    progressBlock: bool = False
+    velvetRoped: bool = True
+    checkPoint: int = -1
+    finalQuest: bool = False
+    acquireOnce: bool = False
+    minLevel: int = 0
+    minWeapLevel: int = 0
+    weapLvlType: Optional = None
+    hideButton: bool = False
+    holiday: Optional = None
+    timeLimit: int = 0
+    obsolete: bool = False
+    questLink: Optional = None
+    questMod: Optional = None
+    shipNPC: Optional = None
     notify = DirectNotifyGlobal.directNotify.newCategory('QuestDNA')
     OR = CombineOps.OR
-    AND = CombineOps.AND
-
-    class ParamSet(ParamObj.ParamSet):
-        Params = {'prereqs': tuple(),'tasks': tuple(),'combineOp': CombineOps.OR,'returnGiverIds': None,'chainedQuests': tuple(),'questId': None,'questInt': -1,'title': '','droppable': True,'rewards': tuple(),'finalizeInfo': tuple(),'instanceInfo': tuple(),'completeRequiresVisit': True,'playStinger': True,'displayGoal': True,'requiresVoyage': False,'progressBlock': False,'velvetRoped': True,'checkPoint': -1,'finalQuest': False,'acquireOnce': False,'minLevel': 0,'minWeapLevel': 0,'weapLvlType': None,'hideButton': False,'holiday': None,'timeLimit': 0,'obsolete': False,'questLink': None,'questMod': None,'shipNPC': None}
+    AND = CombineOps.AND        
 
     def __init__(self, *args, **kwArgs):
-        ParamObj.__init__(self, *args, **kwArgs)
         self.goal = 0
 
     def getName(self):
@@ -35,22 +64,22 @@ class QuestDNA(ParamObj):
         return copy
 
     def setTasks(self, tasks):
-        self.tasks = makeTuple(tasks)
+        self.tasks = tuple(tasks)
 
     def setRewards(self, rewards):
-        self.rewards = makeTuple(rewards)
+        self.rewards = tuple(rewards)
 
     def setFinalizeInfo(self, finalizeInfo):
-        self.finalizeInfo = makeTuple(finalizeInfo)
+        self.finalizeInfo = tuple(finalizeInfo)
 
     def setInstanceInfo(self, instanceInfo):
-        self.instanceInfo = makeTuple(instanceInfo)
+        self.instanceInfo = tuple(instanceInfo)
 
     def setChainedQuests(self, chainedQuests):
-        self.chainedQuests = makeTuple(chainedQuests)
+        self.chainedQuests = tuple(chainedQuests)
 
     def setPrereqs(self, prereqs):
-        self.prereqs = makeTuple(prereqs)
+        self.prereqs = tuple(prereqs)
         self._giverPreqs = []
         self._avPreqs = []
         self._envPreqs = []
@@ -210,7 +239,9 @@ class QuestDNA(ParamObj):
         else:
             str = ''
         return str
-
+    
+    def getQuestId(self):
+        return self.questId
     def hasQuest(self, questId):
         return questId == self.getQuestId()
 
@@ -219,6 +250,9 @@ class QuestDNA(ParamObj):
 
     def initializeFortune(self, droppable):
         self.setDroppable(droppable)
+    
+    def setDroppable(self, droppable):
+        self.droppable = droppable
 
     def getGoal(self):
         return self.goal
@@ -255,7 +289,7 @@ class QuestDNA(ParamObj):
     def computeRewards(self, initialTaskStates, holder):
         rewards = []
         for taskDNA, taskState in zip(self.getTaskDNAs(), initialTaskStates):
-            rewards.extend(makeList(taskDNA.computeRewards(taskState, holder)))
+            rewards.extend(list(taskDNA.computeRewards(taskState, holder)))
 
         return tuple(rewards)
 
@@ -267,6 +301,15 @@ class QuestDNA(ParamObj):
 
     def isBranch(self):
         return False
+    
+    def setCombineOp(self, combineOp):
+        self.combineOp = combineOp
+
+    def setReturnGiverIds(self, returnGiverIds):
+        self.returnGiverIds = returnGiverIds
+
+    def setQuestId(self, questId):
+        self.questId = questId
 
     if __dev__:
 

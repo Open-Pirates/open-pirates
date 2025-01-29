@@ -4,7 +4,7 @@ class AvatarTypeSet(AvatarType):
 
     def __init__(self, strings, *avatarTypes):
         self._strings = strings
-        self._sortedTypes = makeList(avatarTypes)
+        self._sortedTypes = list(avatarTypes)
         self._sortedTypes.sort()
 
     def getAvatarTypes(self):

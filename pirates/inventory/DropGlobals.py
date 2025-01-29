@@ -38,10 +38,10 @@ __commonDropInfo = pickle.loads(commonDropData)
 __staticIdTypeList = {}
 for heading, value in list(__columnHeadings.items()):
     try:
-        newHeading = string.replace(heading, '\r', '')
+        newHeading = heading.replace('\r', '')
         exec('%s = %s' % (newHeading, value), globals())
     except:
-        newHeading = string.replace(heading, '\r', '')
+        newHeading = heading.replace('\r', '')
         exec("__staticIdTypeList['%s'] = %s" % (newHeading, value), globals())
 
 __staticCommonDropList = {}
@@ -52,12 +52,12 @@ for heading, value in list(__commonDropInfo.items()):
     else:
         value = 0
     try:
-        newHeading = string.replace(heading, '\r', '')
+        newHeading = heading.replace('\r', '')
         id = None
         exec('id = (AvatarTypes.%s.getFaction(), AvatarTypes.%s.getTrack(), AvatarTypes.%s.getId())' % (heading, heading, heading))
         exec('__typeCommonDropList[id] = %s' % value, globals())
     except:
-        newHeading = string.replace(heading, '\r', '')
+        newHeading = heading.replace('\r', '')
         exec("__staticCommonDropList['%s'] = %s" % (newHeading, value), globals())
 
 filenameShipMaterialDrops = Filename('ShipMaterialDrops.pkl')
@@ -77,7 +77,7 @@ for heading, value in list(__shipMaterialDropInfo.items()):
     else:
         entryValue = 0
     if hasattr(ShipGlobals, heading):
-        newHeading = string.replace(heading, '\r', '')
+        newHeading = heading.replace('\r', '')
         exec('__shipMaterialDropList[ShipGlobals.%s] = %s' % (newHeading, entryValue), globals())
 
 del searchPath

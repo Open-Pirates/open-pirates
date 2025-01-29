@@ -1,4 +1,4 @@
-from direct.showbase.PythonUtil import POD, makeTuple
+from otp.otpbase.PythonUtil import POD, makeTuple
 from pirates.uberdog.UberDogGlobals import InventoryType
 from pirates.inventory import ItemGlobals
 
@@ -61,7 +61,7 @@ class DidQuest(QuestPrereq):
         QuestPrereq.__init__(self, questIds=questIds)
 
     def setQuestIds(self, questIds):
-        self.questIds = makeTuple(questIds)
+        self.questIds = tuple(questIds)
 
     def avIsReady(self, av):
         from pirates.quest import QuestLadderDB
@@ -91,7 +91,7 @@ class GetFrom(QuestPrereq):
         QuestPrereq.__init__(self, questGivers=questGivers)
 
     def setQuestGivers(self, questGivers):
-        self.questGivers = makeTuple(questGivers)
+        self.questGivers = tuple(questGivers)
 
     def giverCanGive(self, giver):
         return giver in self.questGivers
@@ -104,7 +104,7 @@ class HasQuest(QuestPrereq):
         QuestPrereq.__init__(self, questIds=questIds)
 
     def setQuestIds(self, questIds):
-        self.questIds = makeTuple(questIds)
+        self.questIds = tuple(questIds)
 
     def avIsReady(self, av):
         quests = []
@@ -125,7 +125,7 @@ class NotCompleted(QuestPrereq):
         QuestPrereq.__init__(self, questIds=questIds)
 
     def setQuestIds(self, questIds):
-        self.questIds = makeTuple(questIds)
+        self.questIds = tuple(questIds)
 
     def avIsReady(self, av):
         from pirates.quest import QuestLadderDB

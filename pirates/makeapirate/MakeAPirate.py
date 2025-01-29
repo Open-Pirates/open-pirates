@@ -63,7 +63,7 @@ CamZoomOutPosHprs = [
    Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)]], [[Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)], [Vec3(-3, 20.5, 9.2), Vec3(-0.3 + 180.0, -15.7, -0.8)]]]
 CATALOG_HOLIDAYS = {'Royal Commodore': 3901,'Treasure Hunter': 3902,'Emerald Duelist': 3903,"Town Mayor's Outfit": 3904,'Merchant Voyager': 3905,'Admiral': 3906,'Spanish Conquistador': 3907,'Crimson Captain': 3908,'Spanish Adventurer': 3909,"Raven's Cove Mercenary": 3910,'Pilgrim Explorer': 3911,'French Fencer': 3912,'Oriental': 3913,'Capt. Black': 3914}
 
-class MakeAPirate(DirectObject, StateData.StateData, FSM.FSM):
+class MakeAPirate(StateData.StateData, FSM.FSM):
     notify = DirectNotifyGlobal.directNotify.newCategory('MakeAPirate')
 
     def __init__(self, avList, doneEvent, subId=0, index=0, isPaid=0, isNPCEditor=False, piratesEditor=None):

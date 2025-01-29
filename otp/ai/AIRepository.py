@@ -242,7 +242,7 @@ class AIRepository(ConnectionRepository):
 
     def _getMsgName(self, msgId):
         # we might get a list of message names, use the first one
-        return makeList(AIMsgId2Names.get(msgId, 'UNKNOWN MESSAGE: %s' % msgId))[0]
+        return list(AIMsgId2Names.get(msgId, 'UNKNOWN MESSAGE: %s' % msgId))[0]
 
     def _handleLeak(self, container, containerName):
         # TODO: send email with warning

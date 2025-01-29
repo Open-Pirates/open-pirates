@@ -1,6 +1,6 @@
 from pandac.PandaModules import *
 from direct.interval.IntervalGlobal import *
-from direct.showbase.PythonUtil import DelayedCall, makeList
+from direct.showbase.PythonUtil import DelayedCall
 from direct.showbase.DirectObject import DirectObject
 from pirates.pirate import AvatarTypes
 from pirates.cutscene import CutsceneData, CutsceneActor, CutsceneIvals
@@ -205,7 +205,7 @@ class Cutscene(NodePath, DirectObject):
 
     def _loadSound(self):
         self._sounds = []
-        for soundFile in makeList(self._data.soundFile):
+        for soundFile in list(self._data.soundFile):
             self._sounds.append(loader.loadSfx(soundFile))
 
     def _unloadSound(self):

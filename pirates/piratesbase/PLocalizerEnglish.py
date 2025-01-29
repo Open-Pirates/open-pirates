@@ -6440,7 +6440,7 @@ AccessLevel = {
 }
 for i in range(52):
     card = i
-    suit = card / 13
+    suit = card // 13
     rank = card % 13
     iid = InventoryType.begin_Cards + i
     InventoryTypeNames[iid] = getPlayingCardName(suit, rank)

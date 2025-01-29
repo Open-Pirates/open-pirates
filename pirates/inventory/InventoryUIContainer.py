@@ -10,7 +10,6 @@ from pirates.inventory.InventoryGlobals import Locations
 from pirates.uberdog.UberDogGlobals import InventoryType
 from pirates.uberdog import InventoryRequestBase
 from pirates.inventory import ItemGlobals
-from sets import Set
 
 class InventoryUIContainer(DirectFrame, InventoryRequestBase.InventoryRequestBase):
     testItemCount = 0
@@ -127,7 +126,7 @@ class InventoryUIContainer(DirectFrame, InventoryRequestBase.InventoryRequestBas
         cell.container = self
         cell.number = InventoryUIContainer.cellCount
         cell.showLabel = 0
-        cell.statusMask = Set([])
+        cell.statusMask = set()
         InventoryUIContainer.cellCount += 1
         if self.testWithIn():
             cell.bind(DGG.ENTER, self.manager.startCellItemDetails, extraArgs=[cell, self.detailsPos, self.detailsHeight, self.detailsDelay])

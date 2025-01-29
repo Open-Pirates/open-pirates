@@ -3,7 +3,7 @@ from direct.directnotify import DirectNotifyGlobal
 from direct.interval.IntervalGlobal import *
 from direct.showbase.PythonUtil import reduceAngle, fitSrcAngle2Dest
 from direct.showbase.PythonUtil import clampScalar, getSetter
-from direct.showbase.PythonUtil import ParamObj
+from otp.otpbase.PythonUtil import ParamObj
 from direct.task import Task
 from otp.otpbase import OTPGlobals
 from pirates.pirate import CameraMode

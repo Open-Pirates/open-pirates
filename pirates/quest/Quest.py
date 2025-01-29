@@ -1,6 +1,6 @@
 import copy
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase.PythonUtil import POD, makeTuple
+from otp.otpbase.PythonUtil import POD, makeTuple
 from direct.task.Task import Task
 from pirates.piratesbase import PLocalizer
 from pirates.quest import QuestDB, QuestReward, QuestTaskDNA

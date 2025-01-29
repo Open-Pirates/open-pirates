@@ -1,5 +1,5 @@
 import random
-from direct.showbase.PythonUtil import POD, invertDict, getSetterName
+from otp.otpbase.PythonUtil import POD, invertDict, getSetterName
 from direct.directnotify import DirectNotifyGlobal
 from pirates.quest import QuestRewardStruct
 from pirates.uberdog.UberDogGlobals import InventoryType, InventoryCategory

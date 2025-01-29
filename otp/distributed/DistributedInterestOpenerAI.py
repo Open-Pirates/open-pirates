@@ -12,7 +12,7 @@ class DistributedInterestOpenerAI(DistributedObjectAI):
         if zones is None:
             zones = (2,)
         else:
-            zones = makeTuple(zones)
+            zones = tuple(zones)
         self.zones = zones
         self.requiredDoIds = requiredDoIds
 

@@ -18,7 +18,7 @@ notify-level-tiff error
 # Audio:
 audio-output-rate 44100
 audio-preload-threshold 1024
-audio-library-name p3fmod_audio
+audio-library-name p3openal_audio
 
 server-version pirates-dev
 cull-bin shadow 15 fixed

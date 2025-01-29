@@ -1,5 +1,5 @@
 from direct.directnotify import DirectNotifyGlobal
-from direct.showbase.PythonUtil import POD
+from otp.otpbase.PythonUtil import POD
 from pirates.quest.QuestLadder import QuestLadder, QuestChoice, QuestBranch
 from pirates.quest.QuestDNA import QuestDNA
 from pirates.quest.QuestTaskDNA import VisitTaskDNA

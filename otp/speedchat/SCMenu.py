@@ -30,7 +30,7 @@ class SCMenu(SCObject, NodePath):
         def findNodes(names, model=self.bg):
             results = []
             for name in names:
-                for nm in makeTuple(name):
+                for nm in tuple(name):
                     node = model.find('**/%s' % nm)
                     if not node.isEmpty():
                         results.append(node)
