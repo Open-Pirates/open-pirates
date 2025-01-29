@@ -1,2 +1,2 @@
 cd ../..
-ppython -m pirates.ai.ServiceStart
+python3.9 -m pirates.ai.ServiceStart

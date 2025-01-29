@@ -1,2 +1,2 @@
 cd ../..
-ppython -m pirates.uberdog.ServiceStart
+python3.9 -m pirates.uberdog.ServiceStart
